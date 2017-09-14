@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css">
+    <meta name="google-signin-client_id" content="472160607948-iec287pq6g807q51opp683ar3c5pd7dd.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script>
+        function onSuccess(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            gapi.client.load('plus', 'v1', function () {
+                var request = gapi.client.plus.people.get({
+                    'userId': 'me'
+                });
+                window.location.href='sample.html';
+            });
+        }
+        function onFailure(error) {
+            alert(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('gSignIn', {
+                'scope': 'profile email',
+                'width': 450,
+                'height': 33,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+    </script>
+
+    <title>Login</title>
+</head>
+<body background="img/background.jpg">
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+            <h5>Login</h5>
+            <form class="" method="post" action="#">
+
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Email id</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="email"  placeholder="Email id"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group ">
+                    <a href="sample.html" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Login</a>
+                </div>
+
+                <div class="form-group ">
+                    <a href="Register.html" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+                </div>
+
+                <div class="form-group">
+                <div class="g-signin2" >
+
+                </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

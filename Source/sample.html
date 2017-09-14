@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+    <title>SocialLogin Application</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="videos!" />
+
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="sample.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <script src="translate.js"></script>
+</head>
+
+<style>
+.header h1 {
+font-size: 2.6em;
+font-weight: 130;
+text-align: center;
+color: RED;
+}
+</style>
+
+<body background="img/background.jpg">
+<body ng-app="Translate">
+<div ng-controller="Translatecontroller">
+    <div class="header"><h1>Youtube Search</h1></div>
+    <div class="row" align="center">
+        <form action="#">
+            <input type="text" id="pac-input" placeholder="Type something..." class="form-control">
+            <button class="btn">Search</button>
+            <select name="to" id="lang" class="dropdown-content">
+                <option selected disabled>Choose a language to translate</option>
+                <option value="te">Telugu </option>
+                <option value="ar">Arabic</option>
+                <option value="hi">Hindi</option>
+                <option value="zh">Chinese</option>
+                <option value="zh">Spanish</option>
+            </select>
+            <button class="btn2" ng-click="translate()" >Click here to translate</button>
+            <p><h4><b>Translated word:&nbsp&nbsp{{output}}</b></h4></p>
+            <div class="col2">
+                <div id="results"></div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
